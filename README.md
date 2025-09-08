@@ -1986,11 +1986,9 @@ ECS world uses the same serialization as described above. It can be accessed via
 ```cpp
 // Save contents of world into a buffer
 ecs::World world;
-ecs::SerializationBufferDyn buffer;
-world.save(buffer);
+ecs::SerializationBufferDyn buffer = world.save();
 
 // Load contents of a buffer into our world
-world.cleanup();
 world.load(buffer);
 ```
 
