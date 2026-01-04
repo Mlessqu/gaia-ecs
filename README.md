@@ -2430,14 +2430,13 @@ Prints information about all registered components and reports any detected issu
 ecs::World world;
 
 // Explicitly register components in order (important for serialization)
-(void)world.add<Position>();
-(void)world.add<Velocity>();
-(void)world.add<Health>();
-(void)world.add<Sprite>();
+world.add<Position>();
+world.add<Health>();
+world.add<RenderingData>();
 
 // Verify registration order
 world.diag_components();
-// Should show all components in the order they were registered
+// Should print all components in the order they were registered
 ```
 
 ### print_archetype_entities()
@@ -2446,12 +2445,7 @@ Print entities in an archetype. Available only when `GAIA_ASSERT_ENABLED` is def
 builds).
 
 ```cpp
-static void print_archetype_entities(
-    const World& world, 
-    const Archetype& archetype, 
-    Entity entity, 
-    bool adding
-);
+static void print_archetype_entities(const World& world, const Archetype& archetype, Entity entity, bool adding);
 ```
 
 # Requirements
